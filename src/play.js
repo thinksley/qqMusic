@@ -28,10 +28,10 @@ function initPlay() {
     		myPlayer.pause();
     		this.className='btn_play';
     	}
-    	totalTimeDom.innerHTML=changeTime(myPlayer.duration)
+    	totalTimeDom.innerHTML=changeTime(myPlayer.duration);
     	//alert("Start: " + myPlayer.buffered.start(0) + " End: " + changeTime(myPlayer.buffered.end(0)));  //缓冲
     	
-    },!1)
+    },!1);
 
 
 }
@@ -52,7 +52,7 @@ function isOver(){
 }
 
 function s2ms(a){
-	return a*1e3
+	return a*1e3;
 }
 
 function changeTime(iNum){
@@ -73,8 +73,8 @@ function toZero(iNum){
 String.prototype.unescapeHTML = function() {
     var a = document.createElement("div");
     return a.innerHTML = this,
-    a.innerText || a.textNode || ""
-}
+    a.innerText || a.textNode || "";
+};
 var lrcObj=[];
 //jsonp三步  函数名的callback
 function MusicJsonCallback(data) {
@@ -88,11 +88,11 @@ function MusicJsonCallback(data) {
   		var arr=lrc[i].split(']');
   		arr[0]=arr[0].replace(new RegExp("\\[", "g"),'');
   		//console.log(arr);
-  		if(arr[1]!=''){
+  		if(arr[1]!==''){
   			lrcObj.push({
   				time:arr[0],
   				context:arr[1]
-  			})
+  			});
   		}
   		
   		
@@ -122,14 +122,14 @@ function makeLrcHtml(a){
     if (obj) {
     	for(var i=0;i<obj.length;i++){
 
-    		html.push('<p id="line_' + i + '">' + obj[i].context + "</p>")
+    		html.push('<p id="line_' + i + '">' + obj[i].context + "</p>");
     	}
     	return html.push('<p id="line_' + i + '">(完)</p>'),
-        html.join("")
+        html.join("");
         
     }
     
-    return ""
+    return "";
     
 }
 
@@ -175,12 +175,12 @@ function playTime2ms(a) {
     var b = 1e3 * 60 * parseInt(a.substring(0, a.indexOf(":")), 10),
     c = 1e3 * parseInt(a.substring(a.indexOf(":") + 1, a.indexOf(".")), 10),
     d = parseInt(a.substring(a.indexOf(".") + 1), 10);
-    return b + c + d
+    return b + c + d;
 }
 
 function ms2playTime(a) {
     var b = parseInt(a / 6e4, 10),
     c = parseInt(a / 1e3 % 60, 10),
     d = a - 6e4 * b - 1e3 * c;
-    return (b > 9 ? "": "0") + b + ":" + (c > 9 ? "": "0") + c + "." + (d > 9 ? "": "0") + d
+    return (b > 9 ? "": "0") + b + ":" + (c > 9 ? "": "0") + c + "." + (d > 9 ? "": "0") + d;
 }

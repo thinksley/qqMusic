@@ -9,12 +9,16 @@ module.exports = function(grunt) {
                     'src/play.min.js':['src/play.js']
                 }
             }
+        },
+        jshint: {
+            all: ['src/play.js']
         }
     });
-    // 载入concat和uglify插件，分别对于合并和压缩
+    // 载入插件
     
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     
     // 注册任务
-    grunt.registerTask('default', ['uglify']);
+    grunt.registerTask('default', ['uglify','jshint']);
 };
